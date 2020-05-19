@@ -1,6 +1,6 @@
-export interface Articulo{
-    titulo: string,
-    descripcion: string,
-    fecha: Date,
-    usuario: string,
+export class Articulo{
+    titulo: string;
+    descripcion: string;
+    fecha: Date;
+    usuario: string;
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticulosService } from '../services/articulos.service';
+import { Articulo } from '../models/articulo';
 
 @Component({
   selector: 'app-articulo-detalle',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticuloDetalleComponent implements OnInit {
 
-  constructor() { }
+  articulo: Articulo = new Articulo();
+  constructor(private articuloInyectado: ArticulosService) { }
 
   ngOnInit(): void {
+    this.articulo = this.articuloInyectado.articulo;
   }
+
+  
 
 }

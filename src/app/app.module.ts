@@ -8,6 +8,7 @@ import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { HomeComponent } from './home/home.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ArticuloDetalleComponent } from './articulo-detalle/articulo-detalle.component';
+import { ArticulosService } from './services/articulos.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ArticuloDetalleComponent } from './articulo-detalle/articulo-detalle.co
   ],
   providers: [
     UsuarioService,
+    ArticulosService,
   ],
   bootstrap: [AppComponent]
 })
