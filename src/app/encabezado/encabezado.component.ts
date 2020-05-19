@@ -7,11 +7,13 @@ import { UsuarioService } from '../services/usuario.service';
   styleUrls: ['./encabezado.component.scss']
 })
 export class EncabezadoComponent implements OnInit {
-
+  
   constructor(private UsuarioInyectado: UsuarioService) { }
 
   ngOnInit(): void {
-    this.UsuarioInyectado.usuario
+    console.log(this.UsuarioInyectado.usuario.nombre);
+    ;
+    
   }
 
 }
