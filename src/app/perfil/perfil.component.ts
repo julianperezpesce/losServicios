@@ -8,14 +8,14 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class PerfilComponent implements OnInit {
   nombre:string;
-  constructor(private UsuarioInyectado: UsuarioService) { }
+  constructor(public usuarioInyectado: UsuarioService) { }
 
   ngOnInit(): void {
-    this.UsuarioInyectado.usuario.nombre
+    this.usuarioInyectado.usuario.nombre
   }
 
-  cambiarNombre(nombre){
-    this.UsuarioInyectado.usuario.nombre = "Maria";
+  cambiarNombre(){
+    this.usuarioInyectado.usuario.nombre = "Maria";
   }
 
 }

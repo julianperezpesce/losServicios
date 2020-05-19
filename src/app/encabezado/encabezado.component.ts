@@ -8,12 +8,16 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class EncabezadoComponent implements OnInit {
   
-  constructor(private UsuarioInyectado: UsuarioService) { }
+  constructor(public usuarioInyectado: UsuarioService) { }
 
   ngOnInit(): void {
-    console.log(this.UsuarioInyectado.usuario.nombre);
+    console.log(this.usuarioInyectado.usuario.nombre);
     ;
     
+  }
+
+  cambiarNombre(){
+    this.usuarioInyectado.usuario.nombre = "Julián"
   }
 
 }
