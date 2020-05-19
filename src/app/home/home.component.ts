@@ -16,24 +16,9 @@ export class HomeComponent implements OnInit {
     private ruta: Router) { }
 
   ngOnInit(): void {
-    this.articulos.push({
-      titulo: "Curso de Net Core",
-      descripcion: "Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat dis vel, nulla id proin vitae cursus enim quisque quam luctus, ac scelerisque convallis neque nibh semper non egestas bibendum.",
-      fecha: new Date(),
-      usuario: `${this.usuarioInyectado.usuario.nombre} ${this.usuarioInyectado.usuario.apellido}`,
-    },
-    {
-      titulo: "Curso de Angular",
-      descripcion: "Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat dis vel, nulla id proin vitae cursus enim quisque quam luctus, ac scelerisque convallis neque nibh semper non egestas bibendum.",
-      fecha: new Date('03/17/2020'),
-      usuario: `${this.usuarioInyectado.usuario.nombre} ${this.usuarioInyectado.usuario.apellido}`,
-    },
-    {
-      titulo: "Curso de Flutter",
-      descripcion: "Lorem ipsum dolor sit amet consectetur adipiscing elit feugiat dis vel, nulla id proin vitae cursus enim quisque quam luctus, ac scelerisque convallis neque nibh semper non egestas bibendum.",
-      fecha: new Date('06/30/2019'),
-      usuario:` ${this.usuarioInyectado.usuario.nombre} ${this.usuarioInyectado.usuario.apellido}`,
-    },)
+    this.articuloInyectado.leerNoticias().subscribe((articulosDesdeApi)=>{
+      this.articulos = articulosDesdeApi;
+    });
   }
 
   irAlDetalle(articulo: Articulo){
