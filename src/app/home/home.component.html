@@ -2,7 +2,7 @@
     <div class="articulo" *ngFor="let articulo of articulos">
         <h4>{{articulo.titulo}}</h4>
         <p>{{articulo.descripcion}}</p>
-        <p>{{articulo.fecha}}</p>
+        <p>{{articulo.fecha | date}}</p>
         <h5>{{articulo.usuario}}</h5>
     </div>    
 </div>
