@@ -56,6 +56,13 @@ export class AgregarArticuloComponent implements OnInit {
   editar(){
     this.articulo = this.formularioArticulo.value as Articulo;
     this.articulo.id = this.articuloInyectado.articulo.id;
+
+    //Metodo alternativo
+    // this.articulo.title = this.formularioArticulo.value.title
+    // this.articulo.body = this.formularioArticulo.value.body
+    // this.articulo.userId = this.formularioArticulo.value.userId
+
+    
     this.articuloInyectado.actualizarArticulo(this.articulo).subscribe((articuloRecibido)=>{
       console.log(articuloRecibido);
       console.log("Edición correcta");
