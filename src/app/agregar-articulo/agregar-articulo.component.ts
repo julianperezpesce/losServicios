@@ -22,7 +22,8 @@ export class AgregarArticuloComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.esNuevo = this.rutaActiva.snapshot.params.esNuevo;    
+    this.esNuevo = this.rutaActiva.snapshot.params.esNuevo;
+       
     
     this.formularioArticulo = this.fbGenerador.group({
       title: ['', Validators.required],
@@ -33,6 +34,15 @@ export class AgregarArticuloComponent implements OnInit {
     this.articuloInyectado.leerTodosLosUsuarios().subscribe((usuarioRecibido)=>{
       this.usuarios = usuarioRecibido;
     })
+
+    if(!this.esNuevo){
+      this.articulo = this.articuloInyectado.articulo;
+      this.formularioArticulo.setValue({
+        title: this.articulo.title,
+        body: this.articulo.body,
+        userId: this.articulo.userId,
+      })
+    } 
   }
 
   agregarArticulo(){
@@ -41,5 +51,16 @@ export class AgregarArticuloComponent implements OnInit {
       console.log("Ha registrado su articulo");
       this.formularioArticulo.reset();
     })   
+  }
+
+  editar(){
+    this.articulo = this.formularioArticulo.value as Articulo;
+    this.articulo.id = this.articuloInyectado.articulo.id;
+    this.articuloInyectado.actualizarArticulo(this.articulo).subscribe((articuloRecibido)=>{
+      console.log(articuloRecibido);
+      console.log("Edición correcta");
+      
+      
+    })
   }
 }

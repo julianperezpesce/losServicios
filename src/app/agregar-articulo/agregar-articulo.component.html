@@ -20,7 +20,7 @@
             </select>
 
             <button class="btn btn-primary" *ngIf="esNuevo" [disabled]="!formularioArticulo.valid" (click)="agregarArticulo()">Agregar</button>
-            <button class="btn btn-success" *ngIf="!esNuevo" [disabled]="!formularioArticulo.valid" (click)="agregarArticulo()">Editar</button>
+            <button class="btn btn-success" *ngIf="!esNuevo" [disabled]="!formularioArticulo.valid" (click)="editar()">Editar</button>
 
         </div>
     </form>
