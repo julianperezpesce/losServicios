@@ -13,10 +13,12 @@ export class ArticuloDetalleComponent implements OnInit {
   articulo: Articulo = new Articulo();
   usuario: User = new User();
 
-  constructor(private articuloInyectado: ArticulosService) { }
+  constructor(private articuloInyectado: ArticulosService) { 
+    this.articulo = this.articuloInyectado.articulo;
+  }
 
   ngOnInit(): void {
-    this.articulo = this.articuloInyectado.articulo;
+    
     this.articuloInyectado.leerUsuario(this.articulo.userId).subscribe((usuarioDesdeApi)=>{
       this.usuario = usuarioDesdeApi;
     })

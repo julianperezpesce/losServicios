@@ -10,6 +10,7 @@ import { User } from '../models/user';
 export class ArticulosService {
   articulo: Articulo = new Articulo();
   ruta: string = 'https://jsonplaceholder.typicode.com';
+
   constructor(private http: HttpClient) {
 
    }
@@ -22,6 +23,6 @@ export class ArticulosService {
 
    leerUsuario(userId: number): Observable<User>
    {
-      return this.http.get<User>(this.ruta + '/users' + userId);
+      return this.http.get<User>(this.ruta + '/users/' + userId);
    }
 }
