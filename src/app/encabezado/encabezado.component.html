@@ -13,7 +13,11 @@
         </li>
         <li class="nav-item" (click)="cambiarNombre()">
             <a class="nav-link" >Cambiar Nombre</a>
-          </li>
+        </li>
+
+        <li class="nav-item" >
+            <a class="nav-link" [routerLink]="['/agregar-articulo']" routerLinkActive="active" >Agregar</a>
+        </li>
        
       </ul>
       <span class="navbar-text">
