@@ -42,12 +42,11 @@ export class HomeComponent implements OnInit {
   }
 
   actualizar(articulo: Articulo){
-    articulo.title = "Editando titulo";
-    articulo.body = "Editando cuerpo";
-
-    this.articuloInyectado.actualizarArticulo(articulo).subscribe((articuloRecibido)=>{
-      console.log(articuloRecibido);      
-    })
+    this.articuloInyectado.articulo = articulo;
+    this.ruta.navigateByUrl('/agregar-articulo/:false');
+    // this.articuloInyectado.actualizarArticulo(articulo).subscribe((articuloRecibido)=>{
+    //   console.log(articuloRecibido);      
+    // })
   }
 
 }
