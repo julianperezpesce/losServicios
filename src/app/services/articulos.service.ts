@@ -33,4 +33,12 @@ export class ArticulosService {
    guardarArticulo(articulo: Articulo): Observable<Articulo> {
       return this.http.post<Articulo>(this.ruta + '/posts', articulo);
    }
+
+   borrarArticulo(id: number): Observable<any>{
+     return this.http.delete<any>(this.ruta + '/posts/' + id);
+   }
+
+   actualizarArticulo(articulo: Articulo): Observable<Articulo>{
+     return this.http.put<Articulo>(this.ruta + '/posts/' + articulo.id, articulo)
+   }
 }
