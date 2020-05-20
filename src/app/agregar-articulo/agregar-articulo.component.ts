@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
+import { ArticulosService } from '../services/articulos.service';
 
 @Component({
   selector: 'app-agregar-articulo',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agregar-articulo.component.scss']
 })
 export class AgregarArticuloComponent implements OnInit {
+  usuarios: Array<User> = new Array<User>();
 
-  constructor() { }
+  constructor(private articuloInyectado: ArticulosService) { }
 
   ngOnInit(): void {
+    this.articuloInyectado.leerTodosLosUsuarios().subscribe((usuarioRecibido)=>{
+      this.usuarios = usuarioRecibido;
+    })
   }
 
 }

@@ -10,9 +10,11 @@
     </div>
 
     <div class="form-group">
-        <label for="userId">Autor</label>
-        <input id="userId" class="form-control" type="text" formControlName="body">
-        <select name="" formControlName="userId"></select>
-            <option value="1" >Julián</option>
+        <label for="">Seleccione un Autor</label>        
+        <select class="form-control" formControlName="id">
+            <option *ngFor="let usuario of usuarios" [value]="usuario.id" > {{ usuario.name }} </option>
+        </select>
+
+        <button class="btn btn-primary">Agregar</button>
     </div>
 </div>
