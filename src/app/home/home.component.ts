@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
 
   actualizar(articulo: Articulo){
     this.articuloInyectado.articulo = articulo;
-    this.ruta.navigateByUrl('/agregar-articulo/:false');
+    this.ruta.navigateByUrl('/agregar-articulo/');
     // this.articuloInyectado.actualizarArticulo(articulo).subscribe((articuloRecibido)=>{
     //   console.log(articuloRecibido);      
     // })

@@ -3,6 +3,7 @@ import { User } from '../models/user';
 import { ArticulosService } from '../services/articulos.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Articulo } from '../models/articulo';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-articulo',
@@ -13,10 +14,16 @@ export class AgregarArticuloComponent implements OnInit {
   usuarios: Array<User> = new Array<User>();
   formularioArticulo: FormGroup;
   articulo: Articulo = new Articulo();
+  esNuevo: boolean = true;
 
-  constructor(private articuloInyectado: ArticulosService, private fbGenerador: FormBuilder) { }
+  constructor(private articuloInyectado: ArticulosService, 
+    private fbGenerador: FormBuilder,
+    private rutaActiva: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.esNuevo = this.rutaActiva.snapshot.params.esNuevo;    
+    
     this.formularioArticulo = this.fbGenerador.group({
       title: ['', Validators.required],
       body: ['', Validators.required],
